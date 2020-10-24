@@ -6,12 +6,12 @@
 #    By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 15:35:50 by pjoseth           #+#    #+#              #
-#    Updated: 2020/10/18 08:16:38 by pjoseth          ###   ########.fr        #
+#    Updated: 2020/10/24 13:32:13 by pjoseth          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3d
-OBJS = main.o hook.o
+OBJS = main.o hook.o check.o check_utils.o
 LIBFT = ./libft
 MiniLibX = ./minilibx_macos
 MiniLibX_args = -lmlx -framework OpenGL -framework AppKit
