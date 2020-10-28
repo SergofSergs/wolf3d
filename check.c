@@ -6,7 +6,7 @@
 /*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 08:57:46 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/10/24 13:32:00 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/10/28 16:19:56 by pjoseth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		check_line2(t_mlx *mlx, char *line, int i)
 	if (i != 0 && (mlx->collumns != mlx->width))
 		return (error_mesage("All rows must be the same lenght\n"));
 	if (mlx->collumns < 3)
-		return (error_mesage("3 columns is a minimum\n"));
+		return (error_mesage("Columns error\n"));
 	return (mlx->collumns);
 }
 
@@ -42,12 +42,12 @@ int		check_line(t_mlx *mlx, char *line, int i, int len)
 	q = -1;
 	if (line[0] <= 48 || line[0] > 57 ||
 		line[len - 1] <= 48 || line[len - 1] > 57)
-		return (error_mesage("Walls on the edges are mandatory\n"));
+		return (error_mesage("There must be walls on edges\n"));
 	if (i == 0 || (i == mlx->height - 1))
 	{
 		while (line[++q])
 		{
-			if (line[q] == 48)
+			if ((line[q] < 49 || line[q] > 57) && line[q] != ' ')
 				return (error_mesage("Walls on the edges are mandatory\n"));
 		}
 	}
@@ -55,8 +55,7 @@ int		check_line(t_mlx *mlx, char *line, int i, int len)
 	{
 		while (line[++q])
 		{
-			if ((line[q] < 48 || line[q] > 57)
-				&& line[q] != ' ' && line[q] != '\t')
+			if ((line[q] < 48 || line[q] > 57) && line[q] != ' ')
 				return (error_mesage("Forbidden symbols\n"));
 		}
 	}
@@ -110,9 +109,11 @@ int		get_height(t_mlx *mlx, char *str)
 
 int		check_file(t_mlx *mlx, char *str)
 {
+	int		i;
 	int		fd;
 	char	*line;
 
+	i = -1;
 	line = NULL;
 	if ((fd = open(str, O_RDONLY)) <= 2 || read(fd, line, 0) < 0)
 		return (error_mesage("Access fail\n"));
@@ -121,5 +122,13 @@ int		check_file(t_mlx *mlx, char *str)
 		return (error_mesage("3 raws is a minimum\n"));
 	if (!(get_width(mlx, str)))
 		return (0);
-	return (1);
+	if (!(mlx->arr = (int**)malloc(sizeof(int*) * (mlx->height))))
+		return (0);
+	while (++i < mlx->height)
+	{
+		if (!(mlx->arr[i] = (int*)malloc(sizeof(int) * mlx->width)))
+			return (i);
+	}
+	assemble_arr(mlx->arr, str);
+	return (-10);
 }

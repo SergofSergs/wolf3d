@@ -6,7 +6,7 @@
 /*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 15:42:26 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/10/24 13:34:19 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/10/28 16:18:32 by pjoseth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ typedef struct		s_mlx
 	int				width;
 	int				collumns;
 	int				nulls;
+	int				**arr;
 }					t_mlx;
 
 int					error_mesage(char *str);
 int					key_press(int key, t_mlx *mlx);
-int					red_button(void *p);
+int					red_button(t_mlx *mlx);
 t_mlx				*mlx_initial(void);
 
 int					check_file(t_mlx *mlx, char *str);
@@ -43,5 +44,7 @@ int					check_line2(t_mlx *mlx, char *line, int i);
 
 int					countblocks(char *line);
 void				return_raw_number(int i);
+void				assemble_arr(int **arr, char *str);
+void				fill_line(int *arr, char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 08:13:56 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/10/18 08:14:37 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/10/28 16:41:16 by pjoseth          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 int		key_press(int key, t_mlx *mlx)
 {
+	int i;
+
+	i = -1;
 	if (key == 53)
+	{
+		while (++i < mlx->height)
+			free(mlx->arr[i]);
+		free(mlx->arr);
+		free(mlx);
 		exit(0);
-	if (key == 12)
-		mlx_clear_window(mlx->ptr, mlx->win);
+	}
 	return (0);
 }
 
-int		red_button(void *p)
+int		red_button(t_mlx *mlx)
 {
-	(void)p;
+	free(mlx);
 	exit(0);
 }
