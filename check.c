@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oem <oem@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 08:57:46 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/11/14 14:50:25 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/11/15 21:13:12 by oem              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int		check_line2(t_mlx *mlx, char *line, int i)
 {
 	int		q;
-	int		collumns;
 
 	q = -1;
-	collumns = 0;
 	while (line[++q])
 	{
 		if (line[q] == 48)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oem <oem@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 13:13:31 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/11/14 13:29:19 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/11/15 21:13:43 by oem              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,9 @@ void	assemble_arr(int **arr, char *str)
 void	fill_line(int *arr, char *line)
 {
 	int		i;
-	int		j;
 	char	**z;
 
 	i = 0;
-	j = 0;
 	z = ft_strsplit(line, ' ');
 	while (z[i])
 	{

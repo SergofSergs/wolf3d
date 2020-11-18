@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjoseth <pjoseth@student.42.fr>            +#+  +:+       +#+        */
+/*   By: oem <oem@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 15:42:26 by pjoseth           #+#    #+#             */
-/*   Updated: 2020/11/14 16:53:14 by pjoseth          ###   ########.fr       */
+/*   Updated: 2020/11/16 12:52:52 by oem              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF3D_H
 # define WOLF3D_H
-# define WIDHT 1100
-# define HEIGHT 650
+# define WIDHT 1000
+# define HEIGHT 500
 # include "libft/libft.h"
-# include "mlx.h"
+# include "./minilibx_macos/mlx.h"
 # include <math.h>
 # include <pthread.h>
 
